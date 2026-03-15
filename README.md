@@ -214,7 +214,9 @@ Creditoeducativo/
 ├── src/
 
 │   ├── model/
+
 │   │   └── logica_Credito.py
+
 │   └── consola_Credito.py
 │
 ├── tests/
