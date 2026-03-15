@@ -211,16 +211,20 @@ Estructura
 Creditoeducativo/
 │
 ├── src/
+
 │   ├── model/
 │   │   └── logica_Credito.py
 │   └── consola_Credito.py
 │
 ├── tests/
+
 │   └── tests_Credito.py
 │
 ├── docs/
+
 │   └── CreditoEducativo.xlsx
 │
+
 └── README.md
 
 Descripción
