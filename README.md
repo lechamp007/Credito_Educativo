@@ -204,7 +204,10 @@ Arquitectura del Proyecto
 
 El proyecto está organizado en módulos para separar la lógica del sistema, las pruebas y la documentación.
 
+---------
 Estructura
+
+
 Creditoeducativo/
 │
 ├── src/
@@ -219,6 +222,7 @@ Creditoeducativo/
 │   └── CreditoEducativo.xlsx
 │
 └── README.md
+
 Descripción
 
 src/
