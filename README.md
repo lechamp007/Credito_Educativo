@@ -252,66 +252,48 @@ ErrorDatos
 Se usa cuando faltan datos o están vacíos.
 
 -----
+Como ejecutar Py en CMD
 
-ómo Ejecutar el Proyecto
-Requisitos previos
+1. Verifica que Python esté instalado
 
-Antes de ejecutar el simulador, asegúrate de tener instalado:
-
-Python 3.x
-
-Para verificar si Python está instalado, usa este comando:
+En el CMD escribe:
 
 python --version
 
-o en algunos sistemas:
+o
 
-python3 --version
-Estructura del Proyecto
+py --version
 
+Si aparece una versión (ej: Python 3.12.0), ya estás listo.
+Si no, necesitas instalar Python y agregarlo al PATH.
 
-El archivo principal que contiene la lógica del simulador es:
+2. Ve a la carpeta donde está tu archivo
 
-logica_Credito.py
+Usa el comando cd para moverte a la carpeta donde está tu script .py.
 
-Puedes ejecutarlo con:
+Ejemplo:
 
-python logica_Credito.py
+cd C:\Users\TuUsuario\Desktop
+3. Ejecuta el archivo Python
 
-o si tu sistema usa python3:
+Una vez en la carpeta correcta, escribe:
 
-python3 logica_Credito.py
-Importante:
+python consola_Credito.py
 
-Actualmente, este archivo solo contiene funciones y validaciones, por lo tanto:
+o también:
 
-no muestra un menú
+py consola_Credito.py
 
+Ejemplo:
 
-Ejecutar las pruebas unitarias
+python hola.py
 
-Para ejecutar todas las pruebas del sistema, usa:
+4. (Opcional) Si no funciona
 
-python tests_Credito.py
+Prueba esto:
 
-o:
+Usa py en lugar de python
 
-python3 tests_Credito.py
+Asegúrate de que el archivo termina en .py
 
-También puedes ejecutar las pruebas usando el módulo unittest de Python:
-
-python -m unittest tests_Credito.py
-
-o:
-
-python3 -m unittest tests_Credito.py
-Si quieres ver más detalle en la salida:
-python -m unittest -v tests_Credito.py
-
-o:
-
-python3 -m unittest -v tests_Credito.py
-
-El parámetro -v significa verbose, y muestra el nombre de cada prueba ejecutada.****
-
-
+Verifica que estás en la carpeta correcta (dir para listar archivos)
