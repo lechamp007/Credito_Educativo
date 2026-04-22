@@ -1,7 +1,7 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
- 
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
@@ -9,7 +9,7 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 
- 
+from model import logica_Credito 
  
 class CreditoApp(App):
  
