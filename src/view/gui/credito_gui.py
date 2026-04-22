@@ -1,35 +1,68 @@
 import sys
-sys.path.append("src")
-
-from model.logica_Credito import calcular_cuota, calcular_total_abonos, calcular_total_intereses 
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+ 
 from kivy.app import App
-
-from kivy.uix.scatter import Scatter
 from kivy.uix.label import Label
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.popup import Popup
 
-class CreditoEducativoGUI(App):
-    def build(self): 
-        layout = GridLayouy(cols=2)
-        self.monto_input= TextInput(hint_text='Monto de la compra')
-        self.intereses_input = TextInput(hint_text='Tasa de interés')
-        self.plazo_input = TextInput(hint_text='Número de pagos')
-
-        boton_calcular = Button(text= 'Calcular cuota mensual')
-        boton_calcular.bind(on_press= self.calcular_cuouta)
-
-        self.resultado_label = Label(text='Calcular cuota')
-
-        layout.add_widget(Label(text='Valor de compra'))
-        layout.add_widget(self.monto_input)
-        
-        layout.add_widget(Label(text="Tasa de interés"))
-        layout.add_widget(self.intereses_input)
-
-        layout.add_widget(Label(text="Cuota a pagar"))
-        layout.add_widget(self.plazo_input)
-
+ 
+ 
+class CreditoApp(App):
+ 
+    def build(self):
+        contenedor = GridLayout(cols=2, padding=20, spacing=20)
+ 
+        contenedor.add_widget(Label(text="Monto del crédito educativo"))
+        self.monto = TextInput(font_size=30)
+        contenedor.add_widget(self.monto)
+ 
+        contenedor.add_widget(Label(text="Tasa de interés (%)"))
+        self.tasa = TextInput(font_size=30)
+        contenedor.add_widget(self.tasa)
+ 
+        contenedor.add_widget(Label(text="Número de cuotas"))
+        self.plazo = TextInput(font_size=30)
+        contenedor.add_widget(self.plazo)
+ 
+        self.resultado = Label(text="")
+        contenedor.add_widget(self.resultado)
+ 
+        calcular = Button(text="Calcular cuota", font_size=40)
+        contenedor.add_widget(calcular)
+ 
+        calcular.bind(on_press=self.calcular_cuota)
+ 
+        return contenedor
+ 
+    def calcular_cuota(self, value):
+        try:
+            monto = float(self.monto.text)
+            tasa = float(self.tasa.text) / 100
+            plazo = int(self.plazo.text)
+ 
+            cuota = round(logica_Credito.calcular_cuota(monto, tasa, plazo), 2)
+            self.resultado.text = f"Cuota mensual: {cuota}"
+ 
+        except ValueError:
+            self.resultado.text = "Ingrese valores numéricos válidos"
+        except Exception as err:
+            self.mostrar_error(err)
+ 
+    def mostrar_error(self, err):
+        contenido = GridLayout(cols=1)
+        contenido.add_widget(Label(text=str(err)))
+ 
+        cerrar = Button(text="Cerrar")
+        contenido.add_widget(cerrar)
+ 
+        popup = Popup(title="Error", content=contenido)
+        cerrar.bind(on_press=popup.dismiss)
+        popup.open()
+ 
+ 
 if __name__ == "__main__":
-    CreditoEducativoGUI().run()
+    CreditoApp().run()
